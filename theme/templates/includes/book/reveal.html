@@ -1,0 +1,24 @@
+<div class="container-fluid">
+{% for node in section.nodes %}
+    {% if node.reveal %}
+        <div class="reveal row">
+            <div class="col-sm-4 btn-group-vertical">
+                {% for reveal in node.reveal %}
+                    <a href="#" class="btn btn-default" href="#" data-reveal="reveal-{{ section.id }}-{{ node.id }}-{{ reveal.id }}">
+                        {{ reveal.title }}
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="col-sm-8">
+            {% for reveal in node.reveal %}
+                <div id="reveal-{{ section.id }}-{{ node.id }}-{{ reveal.id }}" class="revealable hidden">
+                    {% autoescape false %}{{ reveal.content }}{% endautoescape %}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        {% autoescape false %}{{ node }}{% endautoescape %}
+    {% endif %}
+{% endfor %}
+</div>

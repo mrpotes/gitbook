@@ -9,8 +9,9 @@ require([
     "core/exercise",
     "core/progress",
     "core/sidebar",
-    "core/search"
-], function($, storage, analytic, sharing, state, keyboard, exercise, progress, sidebar, search){
+    "core/search",
+    "core/reveal"
+], function($, storage, analytic, sharing, state, keyboard, exercise, progress, sidebar, search, reveal){
     $(document).ready(function() {
         var $book = state.$book;
 
@@ -43,6 +44,9 @@ require([
 
         // Show progress
         progress.show();
+
+        // Bind reveal blocks
+        reveal.init();
 
         // Focus on content
         $(".book-body").focus();
