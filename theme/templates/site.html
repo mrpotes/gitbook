@@ -23,6 +23,8 @@
                         {% include "./includes/book/exercise.html" with {section: section} %}
                     {% elif section.type == "quiz" %}
                         {% include "./includes/book/quiz.html" with {section: section} %}
+                    {% elif section.type == "reveal" %}
+                        {% include "./includes/book/reveal.html" with {section: section} %}
                     {% endif %}
                     </section>
                 {% endfor %}
